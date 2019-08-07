@@ -1,12 +1,24 @@
 {
   "name": "weatherApp",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anthony-Moss/udemy-node.js-weather-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Anthony-Moss/udemy-node.js-weather-app/issues"
+  },
+  "homepage": "https://github.com/Anthony-Moss/udemy-node.js-weather-app#readme",
+  "description": ""
 }
