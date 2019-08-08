@@ -5,6 +5,9 @@ const forecast = require('./utils/forecast')
 geocode('Boston', (error, data) => {
     console.log('error',  error)
     console.log('Data', data)
+    forecast(data.longitude, data.latitude, (error, data) => {
+        console.log(`${data.summary} It is currently ${data.temperature} degrees out. There is a ${data.precipProb} % chance of rain`)
+    })
 })
 
 // Goal: Create a reusable function for getting the forecast
@@ -16,8 +19,8 @@ geocode('Boston', (error, data) => {
 //    - Coordinate error, pass string for error
 //    - Success, pass forecast string for data (same format as from before)
 
-forecast(-75.7088, 44.1545, (error, data) => {
-    console.log('Error', error)
-    console.log('Data', data)
-    console.log(`${data.summary} It is currently ${data.temperature} degrees out. There is a ${data.precipProb} % chance of rain`)
-})
+// forecast(-75.7088, 44.1545, (error, data) => {
+//     console.log('Error', error)
+//     console.log('Data', data)
+//     console.log(`${data.summary} It is currently ${data.temperature} degrees out. There is a ${data.precipProb} % chance of rain`)
+// })
