@@ -5,16 +5,16 @@ const address = process.argv[2]
 
 
 if (address) {
-    geocode(address, (error, data) => {
+    geocode(address, (error, { latitude, longitude, location}) => {
         if (error) {
             return console.log(error)
         }
-        forecast(data.latitude, data.latitude, (error, forecastData) => {
+        forecast(latitude, latitude, (error, { summary, temperature, precipProb }) => {
             if (error) {
                 return console.log(error)
             }
-            console.log(data.location)
-            console.log(forecastData)
+            console.log(location)
+            console.log(summary, temperature, precipProb)
             // console.log(`${data.summary} It is currently ${data.temperature} degrees out. There is a ${data.precipProb} % chance of rain`)
         })
     })
