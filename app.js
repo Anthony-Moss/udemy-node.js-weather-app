@@ -21,13 +21,3 @@ if (address) {
 } else {
     console.log('Please provide an address')
 }
-
-// geocode(input)
-
-
-// alternate way to call forecast test case 
-// forecast(-75.7088, 44.1545, (error, data) => {
-//     console.log('Error', error)
-//     console.log('Data', data)
-//     console.log(`${data.summary} It is currently ${data.temperature} degrees out. There is a ${data.precipProb} % chance of rain`)
-// })
