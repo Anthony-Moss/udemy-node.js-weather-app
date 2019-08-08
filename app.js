@@ -1,21 +1,28 @@
-const request = require('request');
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
-geocode('Atlanta', (error, data) => {
-    if (error) {
-        return console.log(error)
-    }
-    forecast(data.latitude, data.latitude, (error, forecastData) => {
+const address = process.argv[2]
+
+
+if (address) {
+    geocode(address, (error, data) => {
         if (error) {
             return console.log(error)
         }
-        console.log(data.location)
-        console.log(forecastData)
-        // console.log(`${data.summary} It is currently ${data.temperature} degrees out. There is a ${data.precipProb} % chance of rain`)
+        forecast(data.latitude, data.latitude, (error, forecastData) => {
+            if (error) {
+                return console.log(error)
+            }
+            console.log(data.location)
+            console.log(forecastData)
+            // console.log(`${data.summary} It is currently ${data.temperature} degrees out. There is a ${data.precipProb} % chance of rain`)
+        })
     })
-})
+} else {
+    console.log('Please provide an address')
+}
 
+// geocode(input)
 
 
 // alternate way to call forecast test case 
