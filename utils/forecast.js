@@ -16,16 +16,16 @@ const request = require('request')
 
 const forecast = (long, lat, callback) => {
     const url = `https://api.darksky.net/forecast/5ff7d44666836f47201faa8a389d0db4/${lat},${long}`
-    request({ url: url, json: true}, (error, response) => {
+    request({ url, json: true}, (error, { body }) => {
         if (error) {
             callback('Unable to connect to weather service!')
-        } else if (response.body.error) {
+        } else if (body.error) {
             callback('Unable to  find location!')
         } else {
             callback(undefined, {
-                summary: response.body.daily.data[0].summary,
-                temperature: response.body.currently.temperature,
-                precipProb: response.body.currently.precipProbability
+                summary: body.daily.data[0].summary,
+                temperature: body.currently.temperature,
+                precipProb: body.currently.precipProbability
             })
         }
     })
