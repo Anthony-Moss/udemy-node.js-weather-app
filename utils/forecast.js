@@ -14,8 +14,8 @@ const request = require('request')
 //     }
 // })
 
-const forecast = (lat, long, callback) => {
-    const url = `https://api.darksky.net/forecast/5ff7d44666836f47201faa8a389d0db4/${long},${lat}`
+const forecast = (long, lat, callback) => {
+    const url = `https://api.darksky.net/forecast/5ff7d44666836f47201faa8a389d0db4/${lat},${long}`
     request({ url: url, json: true}, (error, response) => {
         if (error) {
             callback('Unable to connect to weather service!')
